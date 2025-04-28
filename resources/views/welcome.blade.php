@@ -133,13 +133,7 @@
 
 <body class="">
 
-
-
-
     <header class="position-relative">
-
-
-
         <div id="carouselExampleFade" class="carousel slide carousel-fade relative" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
