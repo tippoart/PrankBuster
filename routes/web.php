@@ -19,3 +19,6 @@ Route::get('/profile', function () {
     return view('profile'); // tampilkan file resources/views/about.blade.php
 });
 
+
+
+

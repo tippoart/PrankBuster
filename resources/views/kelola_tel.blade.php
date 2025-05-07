@@ -11,6 +11,7 @@
     <style>
         * {
             box-sizing: border-box;
+
         }
 
         body {
@@ -73,6 +74,7 @@
             width: 100%;
             border-collapse: collapse;
             text-align: center;
+            font-size: 13px;
         }
 
         th,
@@ -90,6 +92,8 @@
             color: red;
             font-weight: bold;
             cursor: pointer;
+            padding: 5px;
+            border-radius: 7px;
         }
 
         .top-bar {
@@ -112,6 +116,27 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
+        .bi-pencil-square {
+            padding: 5px;
+            border-radius: 7px;
+        }
+
+        .bi-pencil-square:hover {
+            background-color: rgb(166, 190, 216);
+            color: white;
+        }
+
+        .aksi-icon:hover {
+            background-color: rgb(219, 201, 236);
+        }
+
+        .profile {
+            position: relative;
+            bottom: 5rem;
+            left: 98%;
+            color: #4665A4;
+        }
     </style>
 </head>
 
@@ -124,7 +149,7 @@
         </div>
         <div class="mt-20">
             <a href="{{ asset('/history') }}" class="button text-center text-decoration-none">Riwayat</a>
-            <a href="{{ asset('/telepon') }}" class="button text-center text-decoration-none">No Telepon</a>
+            <a href="{{ asset('/kelola_tel') }}" class="button text-center text-decoration-none">No Telepon</a>
 
         </div>
         <a href="{{ asset('/logout') }}" class="logout-btn text-center text-decoration-none">Logout</a>
@@ -133,11 +158,11 @@
 
     <div class="main-content">
         <div class="header">Kelola Data Telepon</div>
-        <a href="{{ asset('/profile') }}">Profile</a>
+        <a class="profile text-3xl" href="{{ asset('/profile') }}"><i class="bi bi-person"></i></a>
 
         <div class="table-container">
             <div class="top-bar">
-                <button>Tambah Telepon Prank/Pengaduan</button>
+                <button onclick="toggleModal()">Tambah Telepon Prank/Pengaduan</button>
                 <input class="search-input" type="text" placeholder="Search...">
             </div>
 
@@ -166,8 +191,12 @@
                         <td>Prank</td>
                         <td>Belum Ditanggapi</td>
                         <td>
-                            <span class="aksi-icon"><i class="bi bi-basket3-fill"></i></span>
-                            <i class="bi bi-pencil-square"></i>
+                            <a href="" class="aksi-icon"><i class="bi bi-trash-fill"></i></a>
+
+                            <a href="">
+                                <i class="bi bi-pencil-square text-green-500"></i>
+
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -179,8 +208,12 @@
                         <td>01/04/2025 00:09</td>
                         <td>Prank</td>
                         <td>Selesai Ditanggapi</td>
-                        <td><span class="aksi-icon"><i class="bi bi-basket3-fill"></i></span>
-                            <i class="bi bi-pencil-square"></i>
+                        <td> <a href="" class="aksi-icon"><i class="bi bi-trash-fill"></i></a>
+
+                            <a href="">
+                                <i class="bi bi-pencil-square text-green-500"></i>
+
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -192,13 +225,61 @@
                         <td>01/04/2025 00:09</td>
                         <td>Pengaduan</td>
                         <td>Selesai Ditanggapi</td>
-                        <td><span class="aksi-icon"><i class="bi bi-basket3-fill"></i></span>
-                            <i class="bi bi-pencil-square"></i>
+                        <td> <a href="" class="aksi-icon"><i class="bi bi-trash-fill"></i></a>
+
+                            <a href="">
+                                <i class="bi bi-pencil-square text-green-500"></i>
+                            </a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <a class="bg-[#7a9bd7] text-white p-2 rounded-lg relative top-6 shadow-lg" href=""><i class="bi bi-upload"></i> Upload Laporan</a>
+
+
+        <!-- Tombol untuk membuka modal -->
+
+
+        <!-- Overlay + Modal -->
+        <div id="modal" class="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+            <div id="modalCard" class="bg-[#809DD9] text-white rounded-2xl px-10 py-8 w-full max-w-md shadow-lg relative">
+                <h2 class="text-xl font-bold text-center mb-6">Tambah Data Telepon<br>Prank Rangking</h2>
+
+                <div class="mb-4">
+                    <label class="block text-sm mb-1" for="telepon">No Telepon Prank</label>
+                    <input id="telepon" type="text" placeholder="Masukkan No Telepon Prank..." class="w-full px-4 py-2 text-black rounded-lg shadow-md focus:outline-none focus:ring-2 " />
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm mb-1" for="panggilan">Jumlah Panggilan</label>
+                    <input id="panggilan" type="number" placeholder="Masukkan jumlah Panggilan..." class="w-full px-4 py-2 text-black rounded-lg shadow-md focus:outline-none focus:ring-2 " />
+                </div>
+
+                <div class="flex justify-end">
+                    <button onclick="toggleModal()" class="bg-white text-[#809DD9] font-semibold px-6 py-2 rounded-lg hover:bg-gray-200">Simpan</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script toggle -->
+        <script>
+            const modal = document.getElementById('modal');
+            const modalCard = document.getElementById('modalCard');
+
+            function toggleModal() {
+                modal.classList.toggle('hidden');
+            }
+
+            // Close modal when clicking outside the card
+            window.addEventListener('click', function(e) {
+                if (!modal.classList.contains('hidden') && !modalCard.contains(e.target) && modal.contains(e.target)) {
+                    toggleModal();
+                }
+            });
+        </script>
+
+
     </div>
 
 </body>
