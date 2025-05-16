@@ -17,6 +17,11 @@
             margin: 0;
         }
 
+        .blur {
+            filter: blur(5px);
+            pointer-events: none;
+        }
+
         .sidebar {
             width: 200px;
             background-color: #7a9bd7;
@@ -25,6 +30,7 @@
             bottom: 0;
             padding: 20px;
             color: white;
+            height: 100vh;
         }
 
         .sidebar .button,
@@ -71,6 +77,7 @@
             text-align: center;
             color: white;
         }
+
 
         .profile-card img {
             width: 60px;
@@ -128,7 +135,7 @@
         }
 
         .popup-header {
-            background-color: #6d95df;
+            background-color: #809DD9;
             padding: 30px 0 20px;
             text-align: center;
             position: relative;
@@ -150,13 +157,9 @@
             left: 50%;
             transform: translateX(-50%);
             border: 4px solid white;
+            border: 2px solid #939A9C;
         }
 
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
 
         .popup-body {
             padding: 60px 30px 30px;
@@ -211,6 +214,9 @@
             color: white;
         }
 
+        /* .bi-person-fill{
+            border: 1px solid #4669a5;
+        } */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -226,41 +232,44 @@
 </head>
 
 <body>
-    <div class="sidebar z-10">
-        <div class="flex align-items-center flex-col">
-            <img src="{{ asset('img/logo.png') }}" alt="Logo" class="object-cover w-12">
-            <p class="font-bold text-sm">BID TIK</p>
+    <!-- Wrapper untuk seluruh konten yang diblur -->
+    <div id="page-wrapper">
+        <div class="sidebar z-10">
+            <div class="flex align-items-center flex-col">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" class="object-cover w-12">
+                <p class="font-bold text-sm">BID TIK</p>
+            </div>
+            <div class="mt-20">
+                <a href="{{ asset('/history') }}" class="button">Riwayat</a>
+                <a href="{{ asset('/kelola_tel') }}" class="button">No Telepon</a>
+            </div>
+            <a href="{{ asset('/logout') }}" class="logout-btn">Logout</a>
         </div>
-        <div class="mt-20">
-            <a href="{{ asset('/history') }}" class="button">Riwayat</a>
-            <a href="{{ asset('/telepon') }}" class="button">No Telepon</a>
-        </div>
-        <a href="{{ asset('/logout') }}" class="logout-btn">Logout</a>
-    </div>
 
-    <div class="main z-0">
-        <h1>Profile</h1>
-        <div class="profile-card">
-            <div class="flex gap-5 items-center justify-center">
-                <i class="bi bi-person-circle text-6xl"></i>
-                <h3 class="font-bold">Hallo Komputer</h3>
-            </div><br>
+        <div class="main z-0">
+            <h1 class="font-bold text-2xl">Profile</h1>
+            <div class="profile-card">
+                <div class="flex gap-5 items-center justify-center">
+                    <i class="bi bi-person-circle text-6xl"></i>
+                    <h3 class="font-bold">Hallo Komputer</h3>
+                </div><br>
 
-            <input type="text" value="Latif Ardiansyah">
-            <input type="text" value="LatifArdiansyah@gmail.com">
-            <input type="password" value="password">
-            <button class="edit-btn" onclick="openPopup()">Edit</button>
+                <input type="text" value="Latif Ardiansyah">
+                <input type="text" value="LatifArdiansyah@gmail.com">
+                <input type="password" value="password">
+                <button class="edit-btn" onclick="openPopup()">Edit</button>
+            </div>
         </div>
     </div>
 
     <!-- Popup Container -->
     <div class="popup" id="editProfilePopup">
         <div class="popup-content">
-            <div class="popup-header">
-                <h2>Edit Profile</h2>
+            <div class="popup-header ">
+                <h2 class="relative bottom-3">Edit Profile</h2>
                 <span class="close-btn" onclick="closePopup()">✕</span>
-                <div class="profile-pic">
-                    <img src="https://via.placeholder.com/60" alt="Profile">
+                <div class="profile-pic ">
+                    <i class="bi bi-person-fill text-5xl text-[#939A9C] relative top-2 "></i>
                 </div>
             </div>
             <div class="popup-body">
@@ -273,10 +282,10 @@
                 <label>Password</label>
                 <div class="password-wrapper">
                     <input type="password" id="passwordField" value="password123">
-                    <span onclick="togglePassword()">👁️</span>
+                    <span onclick="togglePassword()"><i class="bi bi-eye-fill relative bottom-2"></i></span>
                 </div>
 
-                <button class="save-btn">SIMPAN</button>
+                <button class="save-btn">Simpan</button>
             </div>
         </div>
     </div>
@@ -284,10 +293,12 @@
     <script>
         function openPopup() {
             document.getElementById("editProfilePopup").style.display = "flex";
+            document.getElementById("page-wrapper").classList.add("blur");
         }
 
         function closePopup() {
             document.getElementById("editProfilePopup").style.display = "none";
+            document.getElementById("page-wrapper").classList.remove("blur");
         }
 
         function togglePassword() {

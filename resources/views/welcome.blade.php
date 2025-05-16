@@ -142,6 +142,8 @@
                 <div class="carousel-item">
                     <img src="{{ asset('img/image 3.png') }}" class="d-block w-100" alt="...">
                 </div>
+
+                
                 <div class="carousel-item">
                     <img src="{{ asset('img/image 4.png') }}" class="d-block w-100" alt="...">
                 </div>

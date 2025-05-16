@@ -51,7 +51,7 @@
         }
 
         .search {
-            left: 24rem;
+            left: 23.5rem;
         }
 
         .profile {
@@ -91,81 +91,92 @@
         </div>
 
         <!-- Table Header -->
-        <div class="grid grid-cols-7 relative bottom-16 bg-white p-3 rounded-t shadow-md font-semibold text-sm text-gray-600">
+        <!-- Table Header -->
+        <div class="grid relative bottom-16 grid-cols-9 bg-white p-3 rounded-t shadow-md font-semibold text-sm text-gray-600 mb-2">
             <div>No</div>
-            <div>Nomor Telepon</div>
+            <div>Nomor Lap</div>
+            <div>Nama</div>
+            <div>Nomor Tlp</div>
             <div>Waktu</div>
-            <div>Jumlah Panggilan</div>
+            <div>Jumlah Pngl</div>
             <div>Status</div>
             <div>Aksi</div>
             <div>Keterangan</div>
         </div>
 
         <!-- Table Rows -->
-        <div class="space-y-2 mt-3 relative bottom-16">
+        <div class="space-y-2 relative bottom-16">
             <!-- Row 1 -->
-            <div class="grid col1 grid-cols-7 items-center p-3 rounded shadow-lg text-sm">
+            <div class="grid grid-cols-9 items-center  p-3 rounded shadow text-sm bg-[#CED7EA]">
                 <p>1</p>
+                <p>035353535</p>
+                <p>Joko</p>
                 <p>0812xxxxxxxx</p>
                 <p>2009-09-22 16:47:08</p>
                 <p class="text-center">5x</p>
-                <p>Tidak Di tanggapi</p>
+                <p class="text-red-500">Tidak Ditanggapi</p>
                 <div>
-                    <a href="" class="text-stone-500  bg-stone-200 p-2 rounded-lg cursor-pointer">
-                        <span><i class="bi bi-ban"></i></span>
+                    <a href="#" class="text-stone-500 bg-stone-200 p-2 rounded-lg">
+                        <i class="bi bi-ban"></i>
                     </a>
-                    <!-- <a href="" class="text-red-500 bg-white p-2 rounded-lg cursor-pointer">
-                        Blokir
-                    </a> -->
                 </div>
-                <p class="text-red-600"></i> Di BLokir</p>
+                <p class="text-red-600">Diblokir</p>
             </div>
 
             <!-- Row 2 -->
-            <div class="grid col2 grid-cols-7 items-center p-3 rounded shadow-lg text-sm">
+            <div class="grid grid-cols-9 items-center p-3 rounded shadow text-sm bg-[#809DD9] text-white">
                 <p>2</p>
-                <p>0812xxxxxxxx</p>
-                <p>2009-09-22 16:47:08</p>
+                <p>035353536</p>
+                <p>Siti</p>
+                <p>0813xxxxxxxx</p>
+                <p>2009-09-23 09:30:15</p>
                 <p class="text-center">4x</p>
-                <p>Di tanggapi</p>
+                <p class="">Ditanggapi</p>
                 <div>
-                    <a href="" class="text-red-500 bg-white p-2 rounded-lg cursor-pointer">
+                    <a href="#" class="bg-white text-red-500 p-2 rounded-lg">
                         Blokir
                     </a>
                 </div>
-                <p class="text-stone-600">Belum Di blokir</p>
+                <p>Belum Diblokir</p>
             </div>
 
             <!-- Row 3 -->
-            <div class="grid col1 grid-cols-7 items-center p-3 rounded shadow-lg text-sm">
+            <div class="grid grid-cols-9 items-center p-3 rounded shadow text-sm bg-[#CED7EA]">
                 <p>3</p>
-                <p>0812xxxxxxxx</p>
-                <p>2009-09-22 16:47:08</p>
+                <p>035353537</p>
+                <p>Budi</p>
+                <p>0814xxxxxxxx</p>
+                <p>2009-09-24 13:20:45</p>
                 <p class="text-center">2x</p>
-                <p>Di tanggapi</p>
+                <p class="text-green-600">Ditanggapi</p>
                 <div>
-                    <a href="" class="text-red-500 bg-white p-2 rounded-lg cursor-pointer">
+                    <a href="#" class="bg-white text-red-500 p-2 rounded-lg">
                         Blokir
                     </a>
                 </div>
-                <p class="text-stone-600">Belum Di blokir</p>
+                <p class="text-stone-600">Belum Diblokir</p>
             </div>
 
             <!-- Row 4 -->
-            <div class="grid col2 grid-cols-7 items-center p-3 rounded shadow-lg text-sm">
+            <div class="grid grid-cols-9 items-center p-3 rounded shadow text-sm bg-[#809DD9] text-white">
                 <p>4</p>
-                <p>0812xxxxxxxx</p>
-                <p>2009-09-22 16:47:08</p>
+                <p>035353538</p>
+                <p>Dewi</p>
+                <p>0815xxxxxxxx</p>
+                <p>2009-09-25 17:10:22</p>
                 <p class="text-center">1x</p>
-                <p>Di tanggapi</p>
+                <p>Ditanggapi</p>
                 <div>
-                    <a href="" class="text-red-500 bg-white p-2 rounded-lg cursor-pointer">
+                    <a href="#" class="bg-white text-red-500 p-2 rounded-lg">
                         Blokir
                     </a>
                 </div>
-                <p class="text-stone-600">Belum Di blokir</p>
+                <p>Belum Diblokir</p>
             </div>
         </div>
+
+
+      
 
         <!-- Dropdown Filter -->
         <div class="flex align-items-center mt-6 gap-2 relative bottom-16">
