@@ -51,14 +51,125 @@
         }
 
         .search {
-            left: 23.5rem;
+            left: 48rem;
+            bottom: 3rem;
         }
 
         .profile {
             position: relative;
-            left: 98%;
+            left: 5%;
             bottom: 4rem;
             color: #45649d;
+        }
+
+        .kelola-head {
+            position: relative;
+            bottom: 5rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+
+        @media screen and (max-width: 768px) {
+
+            body {
+                height: 2000vh;
+            }
+
+            .sidebar {
+                width: 95%;
+                height: 10%;
+                top: 85%;
+
+                left: 2.5%;
+                padding: 15px;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                align-items: center;
+                z-index: 50;
+                border-radius: 15px;
+            }
+
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px 10px;
+            }
+
+            .navigasi {
+
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                background-color: transparent;
+                position: relative;
+                bottom: 5.4rem;
+                z-index: 20;
+            }
+
+            .navigasi a {
+                font-size: 12px;
+
+            }
+
+            .logo-polda-head {
+                display: none;
+            }
+
+            .button {
+                width: 90%;
+            }
+
+            .logout-btn {
+                position: relative;
+                width: 90%;
+                bottom: 0;
+            }
+
+
+
+
+            .top-bar {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .search-input {
+                width: 100%;
+            }
+
+            .profile {
+                bottom: 4rem;
+                left: 92%;
+            }
+
+            a.bg-\[\#7a9bd7\] {
+                display: block;
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            .kelola-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: white;
+            }
+
+            .title {
+                position: relative;
+                top: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -66,33 +177,36 @@
 <body>
 
     <!-- Sidebar -->
-    <div class="sidebar  ">
-        <div class="flex align-items-center flex-col">
-            <img src="{{ asset('img/logo.png') }}" alt="" class="object-cover w-12">
+     <div class="sidebar ">
+        <div class="flex align-items-center flex-col logo-polda-head">
+            <img src="{{ asset('img/logo.png') }}" alt="" class="object-cover w-12 logo">
             <p class="font-bold text-sm ">BID TIK</p>
         </div>
-        <div class="mt-20">
+        <div class="mt-20 navigasi">
             <a href="{{ asset('/history') }}" class="button text-center text-decoration-none">Riwayat</a>
-            <a href="{{ asset('/kelola_tel') }}" class="button text-center text-decoration-none">No Telepon</a>
+            <a href="{{ asset('/kelola_tel') }}" class="button no-tel riwayat text-center text-decoration-none">No Telepon</a>
+
+            <a href="{{ asset('/logout') }}" class="logout-btn text-center text-decoration-none">Logout</a>
         </div>
-        <a href="{{ asset('/logout') }}" class="logout-btn text-center text-decoration-none">Logout</a>
+
     </div>
+
 
     <!-- Main Content -->
     <main class="pl-60 pt-20 pb-10 pr-10">
 
-        <a class="profile text-3xl" href="{{ asset('/profile') }}"><i class="bi bi-person"></i></a>
-        <div class="flex justify-between flex-col gap-5 items-center mb-6 relative bottom-16">
+        <div class="kelola-head">
+            <img src="{{ asset('img/logo.png') }}" alt="" class="object-cover w-12 logo-2">
+            <a class="profile text-3xl" href="{{ asset('/profile') }}"><i class="bi bi-person"></i></a>
             <h1 class="text-2xl font-bold text-center text-[#4665A4]">Riwayat Panggilan Prank</h1>
-            <div class="relative search">
+        </div>
+        
+        <!-- Table Header -->
+        <div class="grid relative  bottom-16 grid-cols-9 bg-white p-3 rounded-t shadow-md font-semibold text-sm text-gray-600 mb-2">
+            <div class="absolute search">
                 <input type="text" placeholder="Search..." class="pl-4 pr-10 py-2 rounded shadow text-sm border border-gray-300 focus:outline-none" />
                 <span class="absolute right-3 top-2 text-gray-400"><i class="bi bi-search"></i></span>
             </div>
-        </div>
-
-        <!-- Table Header -->
-        <!-- Table Header -->
-        <div class="grid relative bottom-16 grid-cols-9 bg-white p-3 rounded-t shadow-md font-semibold text-sm text-gray-600 mb-2">
             <div>No</div>
             <div>Nomor Lap</div>
             <div>Nama</div>
@@ -176,7 +290,7 @@
         </div>
 
 
-      
+
 
         <!-- Dropdown Filter -->
         <div class="flex align-items-center mt-6 gap-2 relative bottom-16">
