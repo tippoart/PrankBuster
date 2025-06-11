@@ -138,9 +138,9 @@
             color: #4665A4;
         }
 
-        .logo-2{
-            /* display: none; */
-            width:2rem;
+        .logo-2 {
+            display: none;
+            width: 2rem;
             object-fit: cover;
         }
 
@@ -154,7 +154,6 @@
                 width: 95%;
                 height: 10%;
                 top: 85%;
-
                 left: 2.5%;
                 padding: 15px;
                 display: flex;
@@ -165,14 +164,12 @@
                 border-radius: 15px;
             }
 
-
             .main-content {
                 margin-left: 0;
                 padding: 20px 10px;
             }
 
             .navigasi {
-
                 width: 100%;
                 display: flex;
                 align-items: center;
@@ -185,6 +182,8 @@
 
             .navigasi a {
                 font-size: 12px;
+                position: relative;
+                bottom: 0.4rem;
 
             }
 
@@ -240,8 +239,8 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
                 padding: 10px;
-            
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -249,9 +248,13 @@
                 background-color: white;
             }
 
-            .title{
+            .title {
                 position: relative;
-                top:0.5rem;
+                top: 0.5rem;
+            }
+
+            .logo-2 {
+                display: block;
             }
         }
     </style>
@@ -268,7 +271,11 @@
             <a href="{{ asset('/history') }}" class="button text-center text-decoration-none">Riwayat</a>
             <a href="{{ asset('/kelola_tel') }}" class="button no-tel riwayat text-center text-decoration-none">No Telepon</a>
 
-            <a href="{{ asset('/logout') }}" class="logout-btn text-center text-decoration-none">Logout</a>
+            <form action="{{ route('admin.logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="logout-btn text-center text-decoration-none">Logout</button>
+            </form>
+
         </div>
 
     </div>
@@ -357,7 +364,7 @@
                 </tbody>
             </table>
         </div>
-        <a class="bg-[#7a9bd7] text-white p-2 rounded-lg relative top-6 shadow-lg" href=""><i class="bi bi-upload"></i> Upload Laporan</a>
+        <a class="bg-[#7a9bd7] text-white z-0 p-2 rounded-lg relative top-6 shadow-lg" href=""><i class="bi bi-upload"></i> Upload Laporan</a>
 
 
         <!-- Tombol untuk membuka modal -->

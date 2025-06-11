@@ -228,22 +228,122 @@
                 transform: scale(1);
             }
         }
+
+        @media screen and (max-width: 768px) {
+          
+
+            .main {
+                margin-left: 0;
+                padding: 20px 15px;
+            }
+
+            .sidebar {
+                width: 95%;
+                height: 10%;
+                top: 85%;
+                left: 2.5%;
+                padding: 15px;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+                align-items: center;
+                z-index: 50;
+                border-radius: 15px;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px 10px;
+            }
+
+            .navigasi {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                background-color: transparent;
+                position: relative;
+                bottom: 5.8rem;
+                z-index: 20;
+            }
+
+            .navigasi a {
+                font-size: 12px;
+            }
+
+            .logo-polda-head {
+                display: none;
+            }
+
+            .button {
+                width: 90%;
+            }
+
+            .logout-btn {
+                position: relative;
+                width: 90%;
+                bottom: 0;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
+            .search-input {
+                width: 100%;
+            }
+
+            .profile {
+                left: 0%;
+            }
+
+            a.bg-\[\#7a9bd7\] {
+                display: block;
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            .kelola-head {
+                justify-content: space-between;
+                padding: 10px;
+                position: fixed;
+                height: 12% !important;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                z-index: 4;
+            }
+
+            .logo-2 {
+                display: block;
+            }
+
+            .title {
+                position: relative;
+                top: 0.5rem;
+            }
+
+
+        }
     </style>
 </head>
 
 <body>
     <!-- Wrapper untuk seluruh konten yang diblur -->
     <div id="page-wrapper">
-        <div class="sidebar z-10">
-            <div class="flex align-items-center flex-col">
-                <img src="{{ asset('img/logo.png') }}" alt="Logo" class="object-cover w-12">
-                <p class="font-bold text-sm">BID TIK</p>
+        <div class="sidebar ">
+            <div class="flex align-items-center flex-col logo-polda-head">
+                <img src="{{ asset('img/logo.png') }}" alt="" class="object-cover w-12 logo">
+                <p class="font-bold text-sm ">BID TIK</p>
             </div>
-            <div class="mt-20">
-                <a href="{{ asset('/history') }}" class="button">Riwayat</a>
-                <a href="{{ asset('/kelola_tel') }}" class="button">No Telepon</a>
+            <div class="mt-20 navigasi">
+                <a href="{{ asset('/history') }}" class="button text-center text-decoration-none">Riwayat</a>
+                <a href="{{ asset('/kelola_tel') }}" class="button no-tel riwayat text-center text-decoration-none">No Telepon</a>
+                <a href="{{ asset('/logout') }}" class="logout-btn text-center text-decoration-none">Logout</a>
             </div>
-            <a href="{{ asset('/logout') }}" class="logout-btn">Logout</a>
         </div>
 
         <div class="main z-0">

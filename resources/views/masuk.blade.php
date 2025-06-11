@@ -137,32 +137,31 @@
 
         <div class="login-box" class="md:w-full ">
             <h2 class="text-center fw-bold">Login Account</h2>
-
-            <form action="">
+            <form action="{{ route('admin.login.submit') }}" method="POST">
+                @csrf
                 <div class="input-group">
                     <label>Username</label>
-                    <input type="text" placeholder="Masukkan username anda...">
-
+                    <input type="text" name="username" placeholder="Masukkan username anda..." required>
                 </div>
 
                 <div class="input-group password">
                     <label>Password</label>
-                    <input  type="password" placeholder="Masukkan password anda...">
-                    <!-- Eye icon (dummy) -->
-                    <span class="eye-icon"><i class="bi bi-eye-fill"></i></span>
+                    <input type="password" name="password" placeholder="Masukkan password anda..." required>
                 </div>
 
                 <div class="captcha">
-                    <input type="checkbox" id="robot" />
-                    <label for="robot" style="margin-left: 8px; font-style: italic; font-weight: 100; color: #DCE2EE;">Saya Bukan Robot</label>
-                    <img src="{{ asset('img/capca.png') }}" alt="" class="ms-2 object-fit-cover w-8">
+                    <input type="checkbox" id="robot" required>
+                    <label for="robot">Saya Bukan Robot</label>
+                    <img src="{{ asset('img/capca.png') }}" alt="" class="ms-2 w-8">
                 </div>
 
+                <button class="login-button" type="submit">LOGIN</button>
 
-                <button class="login-button">LOGIN</button>
-
-
+                @error('login')
+                <div style="color:red;">{{ $message }}</div>
+                @enderror
             </form>
+
 
         </div>
     </div>

@@ -143,7 +143,7 @@
                     <img src="{{ asset('img/image 3.png') }}" class="d-block w-100" alt="...">
                 </div>
 
-                
+
                 <div class="carousel-item">
                     <img src="{{ asset('img/image 4.png') }}" class="d-block w-100" alt="...">
                 </div>
@@ -163,8 +163,9 @@
             <h6 class="text-white fw-bold fs-3">BIDTIK</h6>
             <h1 class="text-white mt-3 fw-bold fs-2">Selamat Datang Di PrankBuster</h1>
 
-            <a href="{{ url('/masuk') }}" class="text-white fw-bold login">
-                <i class="bi bi-door-open-fill"></i>Masuk</a>
+            <a href="{{ route('admin.login') }}" class="text-white fw-bold login">
+                <i class="bi bi-door-open-fill"></i>Masuk
+            </a>
         </div>
     </header>
 
