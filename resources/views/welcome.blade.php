@@ -161,7 +161,7 @@
         <div class="welcome-header d-flex flex-column align-items-center justify-content-center text-center">
             <img class="logo-bidtik mb-2" src="{{ asset('img/logo.png') }}" alt="">
             <h6 class="text-white fw-bold fs-3">BIDTIK</h6>
-            <h1 class="text-white mt-3 fw-bold fs-2">Selamat Datang Di PrankBuster</h1>
+            <h1 class="text-white mt-3 fw-bold fs-2">Selamat Datang Di PrankBuster tess</h1>
 
             <a href="{{ route('admin.login') }}" class="text-white fw-bold login">
                 <i class="bi bi-door-open-fill"></i>Masuk
