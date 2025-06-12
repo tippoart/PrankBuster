@@ -42,8 +42,6 @@
             height: 40%;
         }
 
-
-
         .ranking h2 {
             font-size: 20px;
             margin-bottom: 20px;
@@ -124,8 +122,84 @@
             position: relative;
             bottom: 10rem;
             z-index: 4;
-            left: 35rem;
+            left: 45%;
             pointer-events: visible;
+        }
+
+        .bidtik-title {
+            font-size: 1.5rem;
+        }
+
+        .title-welcome {
+            font-size: 2.5rem;
+        }
+
+        #chartContainer {
+            width: 50%;
+            height: 300px;
+        }
+
+        #chartContainer2 {
+            width: 50%;
+            height: 300px;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .login {
+                position: absolute;
+                top: -0.5rem;
+                left: 26.5rem;
+                font-size: 0.7rem;
+            }
+
+            .bi-door-open-fill {
+                font-size: 13px;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
+            .section-1 {
+                border-top-right-radius: 20px;
+                border-top-left-radius: 20px;
+                bottom: 1.1rem;
+
+            }
+
+            .logo-bidtik {
+                width: 2rem;
+            }
+
+            .bidtik-title {
+                font-size: 0.6rem;
+            }
+
+            .title-welcome {
+                font-size: 1.4rem;
+                position: relative;
+                bottom: 0.5rem;
+            }
+
+            .chart-container {
+                flex-direction: column;
+            }
+
+            #chartContainer {
+                width: 80%;
+                height: 300px;
+            }
+
+            #chartContainer2 {
+                width: 80%;
+                height: 300px;
+                margin-top: 5rem;
+            }
+
+
+
+
         }
     </style>
 
@@ -157,11 +231,10 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
         <div class="welcome-header d-flex flex-column align-items-center justify-content-center text-center">
             <img class="logo-bidtik mb-2" src="{{ asset('img/logo.png') }}" alt="">
-            <h6 class="text-white fw-bold fs-3">BIDTIK</h6>
-            <h1 class="text-white mt-3 fw-bold fs-2">Selamat Datang Di PrankBuster</h1>
+            <h6 class="text-white bidtik-title fw-bold ">BIDTIK</h6>
+            <h1 class="text-white title-welcome mt-3 fw-bold ">Selamat Datang Di PrankBuster</h1>
 
             <a href="{{ route('admin.login') }}" class="text-white fw-bold login">
                 <i class="bi bi-door-open-fill"></i>Masuk
@@ -169,11 +242,10 @@
         </div>
     </header>
 
-
     <section class="p-4 section-1 ">
         <div class="">
             <div class="ranking ">
-                <h2 class="fw-bold text-start judul-rangking" style="color: #4665A4; ">Rangking Telepon Prank</h2>
+                <h2 class="fw-bold text-startjudul-rangking" style="color: #4665A4; ">Rangking Telepon Prank</h2>
                 <div class="cards">
                     <div class="card d-flex flex-column justify-content-center gap-2  align-items-center">
                         <i class="bi bi-person-circle text-white "></i>
@@ -226,14 +298,14 @@
     </section>
 
 
-    <section class="p-3 overflow-x-hidden w-full">
+    <section class="p-3 section-2 overflow-x-hidden w-full">
 
         <h2 class="fw-bold text-start judul-statistik" style="color: #4665A4; ">Statistik Panggilan Prank</h2>
-        <div class="d-flex justify-content-center align-items-center p-4 w-full">
+        <div class="d-flex chart-container justify-content-center align-items-center p-4 w-full">
 
-            <div id="chartContainer" style="height: 300px; width: 50%;"></div>
+            <div id="chartContainer"></div>
 
-            <div id="chartContainer2" style="height: 300px; width: 50%;"></div>
+            <div id="chartContainer2"></div>
         </div>
 
     </section>
