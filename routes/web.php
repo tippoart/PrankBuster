@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AdminLoginController;
 use Illuminate\Support\Facades\Auth;
 
+
+Route::get('/login', function () {
+    return redirect()->route('admin.login');
+})->name('login');
 // 🏠 Halaman utama (welcome)
 Route::get('/', function () {
     if (Auth::guard('admin')->check()) {
